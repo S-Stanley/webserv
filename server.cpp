@@ -5,7 +5,25 @@
 #include <netinet/in.h>
 #include <string.h>
 
+#include <iostream>
+#include <fstream>
+
 #define PORT 8080
+
+std::string get_file(std::string name)
+{
+    std::ifstream   fd;
+    std::string     to_return;
+    std::string     line;
+
+    fd.open(name);
+    while (getline(fd, line))
+    {
+
+        to_return = to_return + line + '\n';
+    }
+    return (to_return);
+}
 
 int main(int argc, char **argv)
 {
@@ -16,7 +34,7 @@ int main(int argc, char **argv)
     int opt = 1;
     int addrlen = sizeof(address);
     char buffer[1024] = {0};
-    char *hello = "Hello from server";
+    std::string hello = get_file("http/200") + '\n' + get_file("pages/200.html");
 
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
     {
@@ -57,8 +75,9 @@ int main(int argc, char **argv)
 
         valread = read(new_socket, buffer, 1024);
         printf("%s\n", buffer);
-        send(new_socket, hello, strlen(hello), 0);
+        send(new_socket, hello.c_str(), strlen(hello.c_str()), 0);
         printf("hello message sent\n");
+        close(new_socket);
     }
     return (0);
 }
