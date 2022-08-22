@@ -1,0 +1,3 @@
+1. [https://www.bogotobogo.com/cplusplus/sockets_server_client.php](https://www.bogotobogo.com/cplusplus/sockets_server_client.php)
+1. [https://fr.acervolima.com/programmation-de-sockets-en-c-c/](https://fr.acervolima.com/programmation-de-sockets-en-c-c/)
+1. [https://trungams.github.io/2020-08-23-a-simple-http-server-from-scratch/](https://trungams.github.io/2020-08-23-a-simple-http-server-from-scratch/)
