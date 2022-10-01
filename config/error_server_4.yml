@@ -1,0 +1,21 @@
+server:
+  body_max: 150
+  error_page:
+    404: /www/error/404.html
+    403: /www/error/403.html
+  routes:
+    endpoint: /
+    type: GET, POST
+    server_name: localhost
+    port: 8080
+    folder: /www
+    directory_listing: true
+    file_if_is_repertory: /www/index.html
+    extention_for_cgi: .php, .pdf
+server:
+  routes:
+    endpoint: /data/file
+    type: GET, POST, DELETE
+    folder: /www/data/file
+    download: true
+ server:

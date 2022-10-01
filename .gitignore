@@ -1,3 +1,4 @@
-client
-server
 settings.json
+.obj/
+webserv
+.vscode/

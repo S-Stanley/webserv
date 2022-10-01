@@ -1,0 +1,25 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: build
+        run: make
+  tests-arguments:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: tests
+        run: |
+          sudo apt install valgrind -y
+          bash tests/test-arguments.sh
+  tests-parsing-keyword-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: tests
+        run: |
+          sudo apt install valgrind -y
+          bash tests/test-parsging-keyword-server.sh
